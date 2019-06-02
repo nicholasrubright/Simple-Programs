@@ -1,0 +1,37 @@
+START,	INPUT	/inputs value
+	STORE X	/store value into x
+	STORE T	/ stores the value also into temp
+	STORE C /stores value into adding
+
+Mult,	HEX 000
+	LOAD C
+IF,	SKIPCOND 400	/if C = 0, skips next cond
+	JUMP ELSE
+THEN,	JUMP END_IF
+ELSE,	LOAD X
+	ADD T
+	STORE X
+	LOAD C
+	SUBT ONE
+	STORE C
+	Jump IF
+END_IF,	JUMPI Mult
+
+Fac,	HEX 000
+	LOAD X
+	SUBT ONE
+IF,	SKIPCOND 400
+	JUMP ELSE
+THEN,	 
+
+
+
+
+
+
+
+
+
+X,	DEC 0	/input value
+T,	DEC 0	/temp value
+C,	DEC 0	/value for counter	
